@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="discount_level_cashier" model="pos.discount.level">
+            <field name="name">Cashier</field>
+            <field name="sequence">10</field>
+            <field name="max_discount_percent">5</field>
+            <field name="max_discount_amount">0</field>
+            <field name="allow_global_discount" eval="False"/>
+            <field name="can_override" eval="False"/>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="discount_level_senior_cashier" model="pos.discount.level">
+            <field name="name">Senior Cashier</field>
+            <field name="sequence">20</field>
+            <field name="max_discount_percent">15</field>
+            <field name="max_discount_amount">0</field>
+            <field name="can_override" eval="False"/>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="discount_level_supervisor" model="pos.discount.level">
+            <field name="name">Supervisor</field>
+            <field name="sequence">30</field>
+            <field name="max_discount_percent">50</field>
+            <field name="max_discount_amount">0</field>
+            <field name="can_override" eval="True"/>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="discount_level_manager" model="pos.discount.level">
+            <field name="name">Store Manager</field>
+            <field name="sequence">40</field>
+            <field name="max_discount_percent">100</field>
+            <field name="max_discount_amount">0</field>
+            <field name="can_override" eval="True"/>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+</odoo>

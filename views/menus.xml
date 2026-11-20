@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_pos_discount_level"
+              name="Discount Levels"
+              parent="point_of_sale.menu_point_config_product"
+              action="action_pos_discount_level"
+              groups="point_of_sale.group_pos_manager"
+              sequence="40"/>
+
+    <menuitem id="menu_pos_order_discount_log"
+              name="Discount Audit Log"
+              parent="point_of_sale.menu_point_rep"
+              action="action_pos_order_discount_log"
+              groups="point_of_sale.group_pos_manager"
+              sequence="30"/>
+</odoo>
