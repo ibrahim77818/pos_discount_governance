@@ -1,0 +1,219 @@
+<!-- Odoo Apps description page for pos_discount_governance (Odoo 20.0). Inline styles only: apps.odoo.com strips <style> and <script> blocks. -->
+<section style="max-width:1120px;margin:0 auto;padding:0 16px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;color:#2b2b33;">
+
+<!-- ============================== HERO ============================== -->
+<div style="background:linear-gradient(120deg,#017E84 0%,#3d6b78 45%,#714B67 100%);border-radius:18px;padding:48px 40px 40px;color:#ffffff;margin-top:12px;">
+  <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;opacity:.85;margin-bottom:10px;">Point of Sale &middot; Discounts &middot; Internal control</div>
+  <h1 style="font-size:40px;line-height:1.15;font-weight:700;margin:0 0 14px;color:#ffffff;">POS Discount Governance</h1>
+  <p style="font-size:19px;line-height:1.55;max-width:760px;margin:0 0 24px;color:#ffffff;opacity:.95;">Give line and global discounts as a percentage or a fixed amount, exact to the cent on the order, the invoice and the session entry. Every employee gets a discount level, anything above it needs a supervisor&rsquo;s PIN or badge, and the server re-checks every order before accepting it.</p>
+  <div>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">Odoo 20.0</span>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">Community &amp; Enterprise</span>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">English &amp; Arabic (RTL)</span>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">36 automated tests</span>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">Technical name: pos_discount_governance</span>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">LGPL-3</span>
+  </div>
+</div>
+
+<!-- ============================== KEY NUMBERS ============================== -->
+<div style="display:flex;flex-wrap:wrap;margin:28px -8px 8px;">
+  <div style="flex:1 1 220px;margin:8px;background:#f6f4f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#714B67;">2 modes</div><div style="font-size:15px;color:#555;">Percentage or fixed amount, on a line or on the whole order</div></div>
+  <div style="flex:1 1 220px;margin:8px;background:#eef6f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#017E84;">3 checks</div><div style="font-size:15px;color:#555;">Verify by badge scan, PIN code, or badge + PIN</div></div>
+  <div style="flex:1 1 220px;margin:8px;background:#f6f4f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#714B67;">0 RPC</div><div style="font-size:15px;color:#555;">Limits load with the session; checks run in memory, offline too</div></div>
+  <div style="flex:1 1 220px;margin:8px;background:#eef6f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#017E84;">1 approval each</div><div style="font-size:15px;color:#555;">Every discount must be covered by its own authorization</div></div>
+</div>
+
+<!-- ============================== WHY ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">Why this module</h2>
+<p style="font-size:16px;color:#555;margin:0 0 18px;">Discounts are where tills leak money. Standard Odoo lets you switch manual discounts on or off, but not decide who may give how much, or prove afterwards who approved what.</p>
+<div style="display:flex;flex-wrap:wrap;margin:0 -10px;">
+  <div style="flex:1 1 440px;margin:10px;border:1px solid #f1d6d6;background:#fff8f8;border-radius:14px;padding:24px 26px;">
+    <h3 style="font-size:19px;font-weight:700;color:#b33939;margin:0 0 12px;">In standard Odoo 20</h3>
+    <ul style="font-size:15px;line-height:1.65;margin:0;padding-left:20px;color:#3a3a42;">
+      <li>The <b>% Disc</b> button only takes a <b>percentage</b>: &ldquo;40 SR off&rdquo; must be converted by hand.</li>
+      <li>The global <b>Discount</b> button (pos_discount) takes a % or an amount, but always as a plain <b>before-tax</b> discount, with <b>no limit</b> on who uses it.</li>
+      <li>A hand-made line percentage rarely lands on the cent: &ldquo;40 SR off&rdquo; becomes 39.99 or 40.01.</li>
+      <li><b>No limit per employee</b>: anyone allowed to discount can give 100%.</li>
+      <li><b>No supervisor approval</b> step for a large discount.</li>
+      <li>The order keeps a discount percentage, but <b>not who gave or approved it</b>.</li>
+    </ul>
+  </div>
+  <div style="flex:1 1 440px;margin:10px;border:1px solid #cfe7e7;background:#f4fbfb;border-radius:14px;padding:24px 26px;">
+    <h3 style="font-size:19px;font-weight:700;color:#017E84;margin:0 0 12px;">With this module</h3>
+    <ul style="font-size:15px;line-height:1.65;margin:0;padding-left:20px;color:#3a3a42;">
+      <li><b>Percentage</b> or <b>Fixed Amount</b> in one popup, with a live preview of the discount.</li>
+      <li>Global discounts in both modes, <b>split across tax groups</b> so VAT stays right.</li>
+      <li>Amounts are solved against Odoo&rsquo;s own tax engine: <b>order, invoice and session match to the cent</b>.</li>
+      <li><b>Discount levels</b> with a maximum % per discount and an optional amount cap per order.</li>
+      <li>Above the limit: <b>Supervisor Override</b> by PIN, badge, or both, on the spot.</li>
+      <li>A <b>Discount Audit Log</b> on every order, re-checked by the server and tamper-resistant.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ============================== HOW IT WORKS ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">How it works</h2>
+<p style="font-size:16px;color:#555;margin:0 0 18px;">Four steps, all at the till, with no extra screens for the cashier.</p>
+<div style="display:flex;flex-wrap:wrap;margin:0 -8px;">
+  <div style="flex:1 1 200px;margin:8px;border-radius:12px;border:1px solid #e3dde2;padding:18px;"><div style="width:34px;height:34px;border-radius:50%;background:#714B67;color:#fff;font-weight:700;text-align:center;line-height:34px;margin-bottom:10px;">1</div><div style="font-weight:700;margin-bottom:4px;">Set levels</div><div style="font-size:14px;color:#555;">Create discount levels and give each employee one, next to their PIN and badge.</div></div>
+  <div style="flex:1 1 200px;margin:8px;border-radius:12px;border:1px solid #e3dde2;padding:18px;"><div style="width:34px;height:34px;border-radius:50%;background:#714B67;color:#fff;font-weight:700;text-align:center;line-height:34px;margin-bottom:10px;">2</div><div style="font-weight:700;margin-bottom:4px;">Enter the discount</div><div style="font-size:14px;color:#555;">The cashier presses <b>% Disc</b> or <b>Discount</b> and enters a percentage or an amount.</div></div>
+  <div style="flex:1 1 200px;margin:8px;border-radius:12px;border:1px solid #e3dde2;padding:18px;"><div style="width:34px;height:34px;border-radius:50%;background:#714B67;color:#fff;font-weight:700;text-align:center;line-height:34px;margin-bottom:10px;">3</div><div style="font-weight:700;margin-bottom:4px;">Approve if needed</div><div style="font-size:14px;color:#555;">Within the limit it applies at once. Above it, a supervisor approves with PIN or badge.</div></div>
+  <div style="flex:1 1 200px;margin:8px;border-radius:12px;border:1px solid #cfe7e7;background:#f4fbfb;padding:18px;"><div style="width:34px;height:34px;border-radius:50%;background:#017E84;color:#fff;font-weight:700;text-align:center;line-height:34px;margin-bottom:10px;">4</div><div style="font-weight:700;margin-bottom:4px;">Server re-checks</div><div style="font-size:14px;color:#555;">On sync, the server verifies every approval and stores the audit log with the order.</div></div>
+</div>
+
+<!-- ============================== FEATURES ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:44px 0 6px;color:#2b2b33;">Features</h2>
+<p style="font-size:16px;color:#555;margin:0 0 4px;">Screenshots use a demo shop: <b>Abigail Peterson</b> (Cashier level, 5%), <b>Doris Cole</b> (Supervisor level, 50%), and the products DG Coffee Machine (1,000&nbsp;SR + 15% VAT), DG Gift Box (50&nbsp;SR, no tax) and DG Mug (33.33&nbsp;SR + 15% VAT).</p>
+
+<div style="margin:30px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Menus</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Where everything lives</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;"><b>Point of Sale &rsaquo; Configuration &rsaquo; Discount Levels</b> to manage the levels, and <b>Point of Sale &rsaquo; Reporting &rsaquo; Discount Audit Log</b> to review every discount. Both menus are for POS managers.</p>
+  <div style="display:flex;flex-wrap:wrap;margin:0 -8px;align-items:flex-start;">
+    <div style="flex:1 1 400px;min-width:0;margin:8px;"><img src="pdg_01_menu_configuration.png" alt="Point of Sale Configuration menu with Discount Levels" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/></div>
+    <div style="flex:1 1 400px;min-width:0;margin:8px;"><img src="pdg_02_menu_reporting.png" alt="Point of Sale Reporting menu with Discount Audit Log" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/></div>
+  </div>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 1</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Discount levels that match your staff</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">Each level sets a <b>Max Discount (%)</b> per discount and an optional <b>Max Discount Amount per Order</b> (0 means no amount cap), and allows or forbids <b>Fixed Amount Discounts</b> and <b>Global Discounts</b>. Levels with <b>Can Approve Overrides</b> are your supervisors. Four levels ship ready to edit: Cashier 5%, Senior Cashier 15%, Supervisor 50% and Store Manager 100%.</p>
+  <img src="pdg_03_levels_list.png" alt="Discount Levels list with Cashier, Senior Cashier, Supervisor and Store Manager" style="width:100%;margin-bottom:22px;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+  <img src="pdg_04_level_form.png" alt="Supervisor discount level form with limits, permissions and employees" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 2</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">One field on the employee</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">On the employee form, <b>HR Settings</b> tab, <b>POS Discount Level</b> sits right next to the <b>PIN Code</b> and <b>Badge ID</b> that pos_hr already uses. Employees without a level get the POS <b>Default Discount Level</b>. An employee whose level can approve overrides must have a PIN.</p>
+  <img src="pdg_05_employee_level.png" alt="Employee HR Settings tab with POS Discount Level Supervisor" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 3</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Percentage or fixed amount on any line</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;"><b>% Disc</b> opens the <b>Line Discount</b> popup: choose <b>Percentage</b> or <b>Fixed Amount</b>, type or tap the value, and see the result before applying, together with the tax policy and the cashier&rsquo;s own limit.</p>
+  <img src="pdg_06_pos_fixed_entry.png" alt="Line Discount popup with a 40 SR fixed amount and its preview" style="width:100%;margin-bottom:22px;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+  <img src="pdg_09_pos_order_discounted.png" alt="POS order with a fixed discount on the coffee machine and an approved 20 percent on the mug" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+  <div style="background:#f4fbfb;border-left:4px solid #017E84;border-radius:8px;padding:16px 20px;font-size:15px;line-height:1.6;margin-top:14px;"><b>Worked example:</b> 40&nbsp;SR off the coffee machine, before tax. The untaxed amount drops from 1,000.00 to 960.00&nbsp;SR, so the line becomes 1,104.00&nbsp;SR with VAT. The module stores the exact percentage behind it, so a 0.05&nbsp;SR discount on 1,000 &times; 10.05 still gives exactly 10,049.95 on the order and the invoice. Change the quantity and the fixed amount stays fixed.</div>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 4</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Supervisor override, right at the till</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">Abigail tries 20% on the mug; her limit is 5%. The till explains why (<b>Discount Above Your Limit</b>) and offers an <b>Override</b>. Only employees whose level can approve <b>and</b> covers this discount are listed. A wrong PIN is refused and the field is cleared; after 5 wrong attempts verification locks for 60 seconds.</p>
+  <img src="pdg_07_pos_over_limit.png" alt="Discount Above Your Limit dialog for a 20 percent mug discount" style="width:100%;margin-bottom:22px;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+  <img src="pdg_08_pos_supervisor_pin.png" alt="Supervisor Override popup with Doris Cole selected and an invalid credentials message" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+  <div style="font-size:13px;color:#777;margin:6px 0 0;">Badge scanners work as keyboards in the badge field, so scanning a badge never switches the logged-in cashier by mistake.</div>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 5</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Global discounts split by tax group</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">The <b>Discount</b> button gets the same popup for the whole order. The discount is split over the order&rsquo;s tax groups in proportion to their amounts, and the parts always add up to the exact total. A level without <b>Allow Global Discounts</b> is sent to a supervisor.</p>
+  <img src="pdg_10_pos_global_entry.png" alt="Global Discount popup with 10 percent and its preview" style="width:100%;margin-bottom:22px;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+  <img src="pdg_11_pos_global_blocked.png" alt="Cashier level not allowed to give global discounts" style="width:100%;margin-bottom:22px;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+  <img src="pdg_12_order_global_split.png" alt="Order lines with a 10 percent global discount split into a 15 percent VAT line and an untaxed line" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+  <div style="background:#f4fbfb;border-left:4px solid #017E84;border-radius:8px;padding:16px 20px;font-size:15px;line-height:1.6;margin-top:14px;"><b>Split:</b> 10% of the order is 98.02&nbsp;SR before tax: <b>93.17</b> on the 15% VAT group (931.66) and <b>4.85</b> on the untaxed gift box (48.50). VAT is reduced only where VAT was charged.</div>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 6</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">A Discount Audit Log on every order</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">The order form gets a <b>Discount Audit Log</b> tab: timestamp, scope (Line / Global), mode, tax policy, product, entered value, discount amount, cashier, <b>Authorized By</b>, <b>Authorization Method</b>, <b>Supervisor Override</b> and <b>Credentials Verified</b>. Overrides are highlighted.</p>
+  <img src="pdg_13_order_audit_tab.png" alt="Discount Audit Log tab on POS order Shop/0009 with two supervisor approvals" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 7</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">The server has the last word</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">When an order syncs, the server recomputes every discount from the order lines and checks it against its own approval. Choose what happens on a violation: <b>Reject the order</b> (checked before an order number is used) or <b>Accept and flag the order</b>, which adds a red <b>Discount Violation</b> ribbon, the reason, and the <b>Discount Violations</b> filter on the orders list.</p>
+  <img src="pdg_14_order_violation.png" alt="Flagged order with the message DG Mug discount without a verified employee authorization" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 8</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Review discounts across sessions</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;"><b>Reporting &rsaquo; Discount Audit Log</b> lists every discount, with filters <b>Supervisor Overrides</b>, <b>Unverified Credentials</b>, <b>Line Discounts</b>, <b>Global Discounts</b> and <b>Today</b>, grouping by authorizer, cashier, session or day, and a pivot of discount amounts per approver.</p>
+  <img src="pdg_15_audit_log_list.png" alt="Discount Audit Log list filtered on session POS/00003" style="width:100%;margin-bottom:22px;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+  <img src="pdg_16_audit_pivot.png" alt="Pivot of discount amounts by authorizer and scope" style="width:100%;max-width:1000px;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<!-- ============================== SETTINGS & RULES ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:48px 0 6px;color:#2b2b33;">Settings &amp; authorization rules</h2>
+<p style="font-size:16px;color:#555;margin:0 0 18px;">Per point of sale, in <b>Point of Sale &rsaquo; Configuration &rsaquo; Settings &rsaquo; Discount Governance</b>.</p>
+<table style="width:100%;border-collapse:collapse;font-size:15px;">
+  <thead><tr style="background:#714B67;color:#fff;"><th style="text-align:left;padding:10px 14px;">Setting</th><th style="text-align:left;padding:10px 14px;">Options</th><th style="text-align:left;padding:10px 14px;">Default</th></tr></thead>
+  <tbody>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;"><b>Discount Tax Policy</b></td><td style="padding:10px 14px;">Before Tax (reduces the untaxed amount) &middot; After Tax (reduces the tax-included amount)</td><td style="padding:10px 14px;">Before Tax</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;"><b>Allow Fixed Amount Discounts</b></td><td style="padding:10px 14px;">On / off for the whole POS</td><td style="padding:10px 14px;">On</td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;"><b>Require Discount Authorization</b></td><td style="padding:10px 14px;">Verify the employee before every discount: <b>Badge Scan</b>, <b>PIN Code</b> or <b>Badge + PIN</b> (needs <i>Log in with Employees</i>)</td><td style="padding:10px 14px;">Off &middot; PIN Code</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;"><b>Enforce Discount Levels</b></td><td style="padding:10px 14px;">Apply level limits and supervisor override; optional <b>Default Discount Level</b></td><td style="padding:10px 14px;">On</td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;"><b>On Server Violation</b></td><td style="padding:10px 14px;">Reject the order &middot; Accept and flag the order</td><td style="padding:10px 14px;">Reject the order</td></tr>
+  </tbody>
+</table>
+<div style="margin-top:18px;">
+  <div style="margin-bottom:6px;"><span style="display:inline-block;min-width:170px;text-align:center;background:#d1fae5;color:#047857;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">Own approval</span> a discount counts only under the approval given for that line (same product, same kind), never above the approved value</div>
+  <div style="margin-bottom:6px;"><span style="display:inline-block;min-width:170px;text-align:center;background:#dbeafe;color:#1d4ed8;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">Cashier&rsquo;s limits</span> a discount without an approval falls back to the cashier&rsquo;s own level</div>
+  <div style="margin-bottom:6px;"><span style="display:inline-block;min-width:170px;text-align:center;background:#fef3c7;color:#b45309;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">Amount cap</span> the order total discount is capped by the highest cap among the approvals used</div>
+  <div style="margin-bottom:6px;"><span style="display:inline-block;min-width:170px;text-align:center;background:#fee2e2;color:#b91c1c;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">Not authorized</span> with authorization required, a discount without a verified approval is a violation</div>
+</div>
+<div style="background:#f4fbfb;border-left:4px solid #017E84;border-radius:8px;padding:16px 20px;font-size:15px;line-height:1.6;margin-top:14px;"><b>Tamper resistance:</b> after a successful PIN or badge check, the till sends a proof that can only be produced with the plain credential, bound to the order, the line, the product and the approved value. The server recomputes it from the employee record. Changing the value, or copying the approval to another line or order, breaks it. Audit entries are created by the server only; POS users can read them, not create or edit them.</div>
+
+<!-- ============================== CORNER CASES ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:44px 0 6px;color:#2b2b33;">Built for real-world corner cases</h2>
+<p style="font-size:16px;color:#555;margin:0 0 18px;">What happens at a busy till, handled in the code and covered by tests.</p>
+<div style="display:flex;flex-wrap:wrap;margin:0 -8px;font-size:15px;line-height:1.55;">
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Invoices to the cent</b><br/><span style="color:#555;">The invoice line keeps the exact POS discount, so a 0.0005% discount is not rounded to 0.00%.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Tax-included prices</b><br/><span style="color:#555;">Before-tax and after-tax policies work for tax-included and tax-excluded products alike.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Quantity changes</b><br/><span style="color:#555;">A fixed line discount keeps its amount when the quantity changes; a percentage scales with it.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Refunds and rewards</b><br/><span style="color:#555;">Refund lines and loyalty reward lines are not counted as new discounts. A refund returns its share of the global discount, so the customer gets back exactly what was paid.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Several discounts per order</b><br/><span style="color:#555;">An earlier supervisor approval never blocks a later discount inside the cashier&rsquo;s own limit.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>No gaps in order numbers</b><br/><span style="color:#555;">In Reject mode the order is checked before it is created, so rejected orders do not use a number.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Managers without a PIN</b><br/><span style="color:#555;">An approver-level employee without a PIN only gets the default level when acting as cashier.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Arabic keyboards</b><br/><span style="color:#555;">Arabic-Indic digits and the Arabic decimal mark are accepted; amounts stay left-to-right in RTL.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Offline and restaurant drafts</b><br/><span style="color:#555;">Checks need no server call, and a re-synced draft order replaces its log instead of duplicating it.</span></div>
+</div>
+
+<!-- ============================== SECURITY ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:44px 0 6px;color:#2b2b33;">Security</h2>
+<p style="font-size:16px;color:#555;margin:0 0 18px;">Standard Odoo groups; no new group to assign.</p>
+<table style="width:100%;border-collapse:collapse;font-size:15px;">
+  <thead><tr style="background:#714B67;color:#fff;"><th style="text-align:left;padding:10px 14px;">Who</th><th style="text-align:left;padding:10px 14px;">Sees and does</th></tr></thead>
+  <tbody>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:260px;">Point of Sale / User</td><td style="padding:10px 14px;">Reads discount levels (loaded with the session) and the audit log of orders; cannot create, edit or delete audit entries.</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;">Point of Sale / Administrator</td><td style="padding:10px 14px;">Manages discount levels and both menus; reads the audit log.</td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;">Employees / Officer</td><td style="padding:10px 14px;">Reads discount levels and assigns them on the employee form.</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;">Settings (system administrator)</td><td style="padding:10px 14px;">The only role that can delete an audit entry.</td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;">Multi-company</td><td style="padding:10px 14px;">Record rules limit levels and audit entries to the user&rsquo;s companies; levels without a company are shared.</td></tr>
+  </tbody>
+</table>
+
+<!-- ============================== TECHNICAL ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:44px 0 6px;color:#2b2b33;">Technical details</h2>
+<table style="width:100%;border-collapse:collapse;font-size:15px;margin-top:12px;">
+  <tbody>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:240px;color:#777;">Odoo version</td><td style="padding:10px 14px;">20.0, Community and Enterprise</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;color:#777;">Depends on</td><td style="padding:10px 14px;"><code>point_of_sale</code>, <code>pos_hr</code>, <code>pos_discount</code></td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;color:#777;">Python dependency</td><td style="padding:10px 14px;">None</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;color:#777;">Menus</td><td style="padding:10px 14px;">Point of Sale &rsaquo; Configuration &rsaquo; Discount Levels &middot; Point of Sale &rsaquo; Reporting &rsaquo; Discount Audit Log</td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;color:#777;">Settings</td><td style="padding:10px 14px;">Point of Sale &rsaquo; Configuration &rsaquo; Settings &rsaquo; Discount Governance; employee form &rsaquo; HR Settings &rsaquo; POS Discount Level</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;color:#777;">Models</td><td style="padding:10px 14px;">New: <code>pos.discount.level</code>, <code>pos.order.discount.log</code>, <code>pos.discount.engine</code> (abstract). Extended: <code>pos.config</code>, <code>pos.order</code>, <code>pos.order.line</code>, <code>pos.session</code>, <code>hr.employee</code>, <code>account.move.line</code>, <code>res.config.settings</code></td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;color:#777;">Automated tests</td><td style="padding:10px 14px;">36: 15 on the rounding engine (fixed amounts, before/after tax, mixed-tax splits) and 21 end-to-end (limits, overrides, forged and replayed approvals, audit integrity, refunds, invoice and session reconciliation)</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;color:#777;">Languages</td><td style="padding:10px 14px;">English, Arabic (<code>i18n/ar.po</code>, RTL-safe popups)</td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;color:#777;">License</td><td style="padding:10px 14px;">LGPL-3</td></tr>
+  </tbody>
+</table>
+
+<!-- ============================== CONTACT ============================== -->
+<div style="margin:52px 0 40px;background:linear-gradient(120deg,#714B67 0%,#017E84 100%);border-radius:18px;padding:36px 40px;color:#fff;">
+  <h2 style="font-size:26px;font-weight:700;margin:0 0 8px;color:#fff;">Support &amp; customization</h2>
+  <p style="font-size:16px;line-height:1.6;margin:0 0 20px;color:#fff;opacity:.95;">Questions, a demo, or an adaptation to your own process? Get in touch.</p>
+  <a href="mailto:ibrahim.yahiah@gmail.com" style="display:inline-block;background:#fff;color:#714B67;font-weight:700;text-decoration:none;border-radius:8px;padding:12px 22px;margin:0 12px 10px 0;">&#9993;&nbsp; ibrahim.yahiah@gmail.com</a>
+  <a href="https://www.linkedin.com/in/ibrahim-yahia" target="_blank" rel="noopener" style="display:inline-block;border:2px solid #fff;color:#fff;font-weight:700;text-decoration:none;border-radius:8px;padding:10px 22px;margin:0 0 10px 0;">LinkedIn: Ibrahim Yahia</a>
+  <p style="font-size:13px;margin:14px 0 0;opacity:.8;color:#fff;">Author: Ibrahim Yahia &middot; License: LGPL-3</p>
+</div>
+
+</section>

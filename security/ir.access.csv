@@ -1,0 +1,9 @@
+id,name,model_id,group_id/id,operation,domain
+access_pos_discount_level_user,pos.discount.level user,pos.discount.level,point_of_sale.group_pos_user,r,
+access_pos_discount_level_manager,pos.discount.level manager,pos.discount.level,point_of_sale.group_pos_manager,crud,
+access_pos_discount_level_hr,pos.discount.level hr officer,pos.discount.level,hr.group_hr_user,r,
+access_pos_order_discount_log_user,pos.order.discount.log user,pos.order.discount.log,point_of_sale.group_pos_user,r,
+access_pos_order_discount_log_manager,pos.order.discount.log manager,pos.order.discount.log,point_of_sale.group_pos_manager,r,
+access_pos_order_discount_log_admin,pos.order.discount.log admin,pos.order.discount.log,base.group_system,rd,
+rule_pos_discount_level_company,POS Discount Level: multi-company,pos.discount.level,,crud,"['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]"
+rule_pos_order_discount_log_company,POS Discount Log: multi-company,pos.order.discount.log,,crud,"['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]"

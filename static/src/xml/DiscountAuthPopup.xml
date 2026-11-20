@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <!-- Odoo 20 / Owl 3: component members are read through "this." in templates. -->
+    <t t-name="pos_discount_governance.DiscountAuthPopup">
+        <Dialog title="this.props.title" size="'md'" contentClass="'pos-dg-popup pos-dg-auth-popup'">
+                <p t-if="this.props.body" class="pos-dg-text"><t t-out="this.props.body"/></p>
+
+                <div t-if="this.needsPin and this.candidates.length" class="pos-dg-field">
+                    <label class="pos-dg-label" for="pos_dg_auth_employee">Employee</label>
+                    <select id="pos_dg_auth_employee" class="pos-dg-input" t-model.proxy="this.state.employeeId">
+                        <option value="">Any employee (unique PIN)</option>
+                        <t t-foreach="this.candidates" t-as="employee" t-key="employee.id">
+                            <option t-att-value="employee.id"><t t-out="employee.name"/></option>
+                        </t>
+                    </select>
+                </div>
+
+                <div t-if="this.needsBadge" class="pos-dg-field">
+                    <label class="pos-dg-label" for="pos_dg_auth_badge">Badge</label>
+                    <input id="pos_dg_auth_badge" t-ref="this.badgeRef" type="password" dir="ltr"
+                           class="pos-dg-input pos-dg-ltr" autocomplete="off"
+                           placeholder="Scan your badge"
+                           t-model.proxy="this.state.badge"
+                           t-on-keydown="this.onKeydown" t-on-keyup.stop="this.noop"/>
+                </div>
+
+                <div t-if="this.needsPin" class="pos-dg-field">
+                    <label class="pos-dg-label" for="pos_dg_auth_pin">PIN Code</label>
+                    <input id="pos_dg_auth_pin" t-ref="this.pinRef" type="password" dir="ltr"
+                           inputmode="numeric" class="pos-dg-input pos-dg-ltr" autocomplete="off"
+                           t-model.proxy="this.state.pin"
+                           t-on-keydown="this.onKeydown" t-on-keyup.stop="this.noop"/>
+                    <div class="pos-dg-keypad" dir="ltr">
+                        <t t-foreach="['1', '2', '3', '4', '5', '6', '7', '8', '9', 'C', '0', 'Backspace']"
+                           t-as="key" t-key="key">
+                            <button type="button" class="pos-dg-key" t-on-click="() => this.pressKey(key)">
+                                <t t-if="key === 'Backspace'"><i class="fa fa-long-arrow-left" aria-label="Backspace" title="Backspace"/></t>
+                                <t t-else=""><t t-out="key"/></t>
+                            </button>
+                        </t>
+                    </div>
+                </div>
+
+                <div t-if="this.state.error" class="pos-dg-error" role="alert">
+                    <i class="fa fa-exclamation-triangle me-1" aria-hidden="true"/>
+                    <t t-out="this.state.error"/>
+                </div>
+            <t t-set-slot="footer">
+                <button type="button" class="btn btn-secondary btn-lg lh-lg o-default-button" t-on-click="this.cancel"><t t-out="this.props.cancelText"/></button>
+                <button type="button" class="btn btn-primary btn-lg lh-lg o-default-button" t-on-click="this.confirm"><t t-out="this.props.confirmText"/></button>
+            </t>
+        </Dialog>
+    </t>
+
+</templates>

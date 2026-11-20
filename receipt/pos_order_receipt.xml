@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Receipt (rendered by the server and by the POS): a fixed-amount
+             line discount shows as an amount, a percentage without float noise. -->
+        <template id="pos_orderline_receipt_information" inherit_id="point_of_sale.pos_orderline_receipt_information">
+            <xpath expr="//div[hasclass('no-discount-price')]" position="attributes">
+                <attribute name="t-if">line['discount'] and not line.get('dg_discount_text') and not conditions['basic_receipt'] and not line['combo_parent_id']</attribute>
+            </xpath>
+            <xpath expr="//div[hasclass('no-discount-price')]/t[@t-out=&quot;line['discount']&quot;]" position="attributes">
+                <attribute name="t-out">line.get('dg_discount_pct') or line['discount']</attribute>
+            </xpath>
+            <xpath expr="//div[hasclass('no-discount-price')]" position="after">
+                <div t-if="line.get('dg_discount_text') and not conditions['basic_receipt'] and not line['combo_parent_id']"
+                     class="text-small pos-dg-fixed-discount" t-out="line['dg_discount_text']"/>
+            </xpath>
+        </template>
+    </data>
+</odoo>

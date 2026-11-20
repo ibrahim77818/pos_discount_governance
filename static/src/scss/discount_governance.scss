@@ -1,0 +1,156 @@
+// POS Discount Governance popups.
+// Logical properties (inline-start/end) keep the layout correct in RTL
+// (Arabic); every numeric/currency input is forced LTR in the templates.
+
+// Odoo 18 popups are web Dialogs: the dialog sizes and centres itself, the
+// class below is set on the modal content through `contentClass`.
+.pos-dg-popup {
+
+    .modal-body {
+        text-align: start;
+    }
+
+    .pos-dg-text {
+        margin: 0 0 10px;
+        color: #555;
+    }
+
+    .pos-dg-subtitle {
+        font-weight: bold;
+        color: #333;
+    }
+
+    .pos-dg-field {
+        margin-block-end: 12px;
+    }
+
+    .pos-dg-label {
+        display: block;
+        margin-block-end: 4px;
+        font-weight: bold;
+    }
+
+    .pos-dg-input {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 10px 12px;
+        font-size: 18px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background: #fff;
+    }
+
+    .pos-dg-ltr {
+        direction: ltr;
+        unicode-bidi: isolate;
+        text-align: left;
+    }
+
+    .pos-dg-modes {
+        display: flex;
+        gap: 8px;
+        margin-block-end: 10px;
+
+        .pos-dg-mode {
+            flex: 1 1 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background: #f7f7f7;
+            cursor: pointer;
+            font-size: 15px;
+
+            &.active {
+                border-color: #6ec89b;
+                background: #e9f7ef;
+                font-weight: bold;
+            }
+        }
+
+        .pos-dg-mode-symbol {
+            font-size: 18px;
+        }
+    }
+
+    .pos-dg-value {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-block-end: 10px;
+
+        .pos-dg-amount {
+            flex: 1 1 auto;
+            font-size: 26px;
+            text-align: right;
+        }
+
+        .pos-dg-unit {
+            font-size: 22px;
+            min-width: 2.5em;
+            text-align: center;
+        }
+    }
+
+    // Keypads keep calculator order in every language.
+    .pos-dg-keypad {
+        direction: ltr;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
+        margin-block: 8px;
+
+        .pos-dg-key {
+            padding: 7px 0;
+            font-size: 18px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background: #fff;
+            cursor: pointer;
+
+            &:active {
+                background: #eee;
+            }
+        }
+    }
+
+    .pos-dg-meta {
+        font-size: 13px;
+        color: #666;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+
+        .pos-dg-meta-label {
+            margin-inline-end: 4px;
+        }
+
+        .pos-dg-preview {
+            margin-block-start: 4px;
+            font-size: 15px;
+            color: #2a7a4f;
+            font-weight: bold;
+        }
+    }
+
+    .pos-dg-error {
+        margin-block-start: 10px;
+        padding: 8px 10px;
+        border-radius: 4px;
+        background: #fdecea;
+        color: #b3261e;
+        white-space: pre-line;
+    }
+
+    .modal-footer {
+        gap: 8px;
+    }
+}
+
+// Fixed-amount discount line in the order widget / receipt.
+.pos-dg-fixed-discount bdi {
+    font-style: italic;
+}

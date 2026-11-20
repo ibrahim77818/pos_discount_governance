@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <!-- Odoo 20 / Owl 3: component members are read through "this." in templates. -->
+    <t t-name="pos_discount_governance.DiscountEntryPopup">
+        <Dialog title="this.props.title" size="'md'" contentClass="'pos-dg-popup pos-dg-entry-popup'">
+                <p t-if="this.props.subtitle" class="pos-dg-text pos-dg-subtitle"><t t-out="this.props.subtitle"/></p>
+
+                <div class="pos-dg-modes" role="radiogroup" aria-label="Discount mode">
+                    <button type="button" role="radio"
+                            t-att-aria-checked="this.state.mode === 'percent' ? 'true' : 'false'"
+                            t-att-class="{'pos-dg-mode': true, 'active': this.state.mode === 'percent'}"
+                            t-on-click="() => this.setMode('percent')">
+                        <span class="pos-dg-mode-symbol" dir="ltr">%</span>
+                        <span>Percentage</span>
+                    </button>
+                    <button t-if="this.props.allowFixed" type="button" role="radio"
+                            t-att-aria-checked="this.state.mode === 'fixed' ? 'true' : 'false'"
+                            t-att-class="{'pos-dg-mode': true, 'active': this.state.mode === 'fixed'}"
+                            t-on-click="() => this.setMode('fixed')">
+                        <span class="pos-dg-mode-symbol" dir="ltr"><t t-out="this.props.currencySymbol"/></span>
+                        <span>Fixed Amount</span>
+                    </button>
+                </div>
+
+                <div class="pos-dg-value" dir="ltr">
+                    <input t-ref="this.inputRef" type="text" inputmode="decimal" dir="ltr" autocomplete="off"
+                           class="pos-dg-input pos-dg-ltr pos-dg-amount"
+                           t-att-value="this.state.value"
+                           t-on-input="this.onInput" t-on-keydown="this.onKeydown" t-on-keyup.stop="this.noop"/>
+                    <span class="pos-dg-unit">
+                        <t t-if="this.state.mode === 'percent'">%</t>
+                        <t t-else=""><t t-out="this.props.currencySymbol"/></t>
+                    </span>
+                </div>
+
+                <div class="pos-dg-keypad" dir="ltr">
+                    <t t-foreach="['1', '2', '3', '4', '5', '6', '7', '8', '9', '.', '0', 'Backspace']"
+                       t-as="key" t-key="key">
+                        <button type="button" class="pos-dg-key" t-on-click="() => this.pressKey(key)">
+                            <t t-if="key === 'Backspace'"><i class="fa fa-long-arrow-left" aria-label="Backspace" title="Backspace"/></t>
+                            <t t-else=""><t t-out="key"/></t>
+                        </button>
+                    </t>
+                </div>
+
+                <t t-set="preview" t-value="this.preview"/>
+                <div class="pos-dg-meta">
+                    <div t-if="this.props.policyLabel">
+                        <span class="pos-dg-meta-label">Tax policy:</span>
+                        <span t-out="this.props.policyLabel"/>
+                    </div>
+                    <div t-if="this.props.limitText" class="pos-dg-limit"><t t-out="this.props.limitText"/></div>
+                    <div t-if="preview.text" class="pos-dg-preview"><bdi><t t-out="preview.text"/></bdi></div>
+                </div>
+
+                <div t-if="this.state.error or preview.error" class="pos-dg-error" role="alert">
+                    <i class="fa fa-exclamation-triangle me-1" aria-hidden="true"/>
+                    <t t-out="this.state.error or preview.error"/>
+                </div>
+            <t t-set-slot="footer">
+                <button type="button" class="btn btn-secondary btn-lg lh-lg o-default-button" t-on-click="this.cancel"><t t-out="this.props.cancelText"/></button>
+                <button type="button" class="btn btn-primary btn-lg lh-lg o-default-button" t-on-click="this.confirm"><t t-out="this.props.confirmText"/></button>
+            </t>
+        </Dialog>
+    </t>
+
+</templates>

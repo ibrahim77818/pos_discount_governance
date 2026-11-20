@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_pos_order_discount_log_tree" model="ir.ui.view">
+        <field name="name">pos.order.discount.log.tree</field>
+        <field name="model">pos.order.discount.log</field>
+        <field name="arch" type="xml">
+            <list string="Discount Audit Log" create="false" edit="false" delete="false"
+                  decoration-warning="escalated" decoration-danger="auth_method != 'none' and not proof_verified">
+                <field name="timestamp"/>
+                <field name="order_id"/>
+                <field name="config_id" optional="hide"/>
+                <field name="scope"/>
+                <field name="mode"/>
+                <field name="tax_policy" optional="show"/>
+                <field name="product_id" optional="show"/>
+                <field name="value"/>
+                <field name="effective_percent" optional="show"/>
+                <field name="discount_amount" sum="Total"/>
+                <field name="cashier_employee_id"/>
+                <field name="authorizer_employee_id"/>
+                <field name="auth_method"/>
+                <field name="escalated"/>
+                <field name="proof_verified"/>
+                <field name="currency_id" invisible="1"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_pos_order_discount_log_form" model="ir.ui.view">
+        <field name="name">pos.order.discount.log.form</field>
+        <field name="model">pos.order.discount.log</field>
+        <field name="arch" type="xml">
+            <form string="Discount Audit Entry" create="false" edit="false" delete="false">
+                <sheet>
+                    <group>
+                        <group string="Discount">
+                            <field name="order_id"/>
+                            <field name="timestamp"/>
+                            <field name="scope"/>
+                            <field name="mode"/>
+                            <field name="tax_policy"/>
+                            <field name="product_id"/>
+                            <field name="value"/>
+                            <field name="effective_percent"/>
+                            <field name="discount_amount"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                        <group string="Authorization">
+                            <field name="cashier_employee_id"/>
+                            <field name="authorizer_employee_id"/>
+                            <field name="auth_method"/>
+                            <field name="escalated"/>
+                            <field name="proof_verified"/>
+                            <field name="session_id"/>
+                            <field name="config_id"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_pos_order_discount_log_pivot" model="ir.ui.view">
+        <field name="name">pos.order.discount.log.pivot</field>
+        <field name="model">pos.order.discount.log</field>
+        <field name="arch" type="xml">
+            <pivot string="Discount Analysis" sample="1">
+                <field name="authorizer_employee_id" type="row"/>
+                <field name="scope" type="col"/>
+                <field name="discount_amount" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="view_pos_order_discount_log_search" model="ir.ui.view">
+        <field name="name">pos.order.discount.log.search</field>
+        <field name="model">pos.order.discount.log</field>
+        <field name="arch" type="xml">
+            <search string="Discount Audit Log">
+                <field name="order_id"/>
+                <field name="cashier_employee_id"/>
+                <field name="authorizer_employee_id"/>
+                <field name="product_id"/>
+                <field name="session_id"/>
+                <filter name="filter_escalated" string="Supervisor Overrides" domain="[('escalated', '=', True)]"/>
+                <filter name="filter_unverified" string="Unverified Credentials"
+                        domain="[('auth_method', '!=', 'none'), ('proof_verified', '=', False)]"/>
+                <separator/>
+                <filter name="filter_line" string="Line Discounts" domain="[('scope', '=', 'line')]"/>
+                <filter name="filter_global" string="Global Discounts" domain="[('scope', '=', 'global')]"/>
+                <separator/>
+                <filter name="filter_today" string="Today"
+                        domain="[('timestamp', '&gt;=', context_today().strftime('%Y-%m-%d 00:00:00'))]"/>
+                <group>
+                    <filter name="group_authorizer" string="Authorized By" context="{'group_by': 'authorizer_employee_id'}"/>
+                    <filter name="group_cashier" string="Cashier" context="{'group_by': 'cashier_employee_id'}"/>
+                    <filter name="group_session" string="Session" context="{'group_by': 'session_id'}"/>
+                    <filter name="group_day" string="Day" context="{'group_by': 'timestamp:day'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_pos_order_discount_log" model="ir.actions.act_window">
+        <field name="name">Discount Audit Log</field>
+        <field name="res_model">pos.order.discount.log</field>
+        <field name="view_mode">list,pivot,form</field>
+        <field name="context">{'create': False}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_empty_folder">No discounts recorded yet</p>
+            <p>Every line or global discount applied in the Point of Sale is recorded here.</p>
+        </field>
+    </record>
+</odoo>
