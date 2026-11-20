@@ -1,0 +1,1074 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_discount_governance
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-18 00:00+0000\n"
+"PO-Revision-Date: 2026-11-18 00:00+0000\n"
+"Last-Translator: Ibrahim Yahia\n"
+"Language-Team: Arabic\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+
+#. module: pos_discount_governance
+#. odoo-python
+#: code:addons/pos_discount_governance/models/pos_order.py:0
+#, python-format
+msgid "%(label)s: discount of %(amount)s exceeds the authorized maximum of %(percent)s%% (%(allowed)s)."
+msgstr "%(label)s: الخصم البالغ %(amount)s يتجاوز الحد الأقصى المصرح به %(percent)s%% (%(allowed)s)."
+
+#. module: pos_discount_governance
+#. odoo-python
+#: code:addons/pos_discount_governance/models/pos_order.py:0
+#, python-format
+msgid "%(label)s: discount of %(amount)s is higher than the approved %(approved)s."
+msgstr "%(label)s: الخصم البالغ %(amount)s أعلى من المبلغ المعتمد %(approved)s."
+
+#. module: pos_discount_governance
+#. odoo-python
+#: code:addons/pos_discount_governance/models/pos_order.py:0
+#, python-format
+msgid "%(label)s: discount without a verified employee authorization."
+msgstr "%(label)s: خصم دون تفويض موثَّق من موظف."
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/js/discount_flow.js:0
+msgid "%s cannot approve this discount."
+msgstr "لا يمكن لـ %s اعتماد هذا الخصم."
+
+#. module: pos_discount_governance
+#. odoo-python
+#: code:addons/pos_discount_governance/models/hr_employee.py:0
+#, python-format
+msgid "%s has a discount level that can approve overrides and must have a PIN code."
+msgstr "لدى %s مستوى خصم يسمح باعتماد التجاوزات، لذا يجب أن يكون له رمز سري."
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/js/governance.js:0
+msgid "%s per order"
+msgstr "%s لكل طلب"
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/js/governance.js:0
+msgid "%s: %s exceeds the maximum of %s%%."
+msgstr "%s: المبلغ %s يتجاوز الحد الأقصى %s%%."
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/js/governance.js:0
+msgid "%s: %s is higher than the approved %s."
+msgstr "%s: المبلغ %s أعلى من المبلغ المعتمد %s."
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/js/governance.js:0
+msgid "%s: discount without a verified employee authorization."
+msgstr "%s: خصم دون تفويض موثَّق من موظف."
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/js/Popups/DiscountEntryPopup.js:0
+msgid "A percentage cannot exceed 100."
+msgstr "لا يمكن أن تتجاوز النسبة المئوية 100."
+
+#. module: pos_discount_governance
+#. odoo-python
+#: code:addons/pos_discount_governance/models/pos_config.py:0
+#: model:ir.model.fields.selection,name:pos_discount_governance.selection__pos_config__discount_violation_action__flag
+#: model:ir.model.fields.selection,name:pos_discount_governance.selection__res_config_settings__pos_discount_violation_action__flag
+msgid "Accept and flag the order"
+msgstr "قبول الطلب مع وضع علامة عليه"
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,field_description:pos_discount_governance.field_pos_discount_level__active
+msgid "Active"
+msgstr "نشط"
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/js/PaymentScreen.js:0
+msgid "Adjust the discounts or ask a supervisor to approve them."
+msgstr "عدِّل الخصومات أو اطلب من المشرف اعتمادها."
+
+#. module: pos_discount_governance
+#. odoo-python
+#: code:addons/pos_discount_governance/models/discount_engine.py:0
+#: model:ir.model.fields.selection,name:pos_discount_governance.selection__pos_config__discount_tax_policy__after_tax
+#: model:ir.model.fields.selection,name:pos_discount_governance.selection__pos_order__discount_tax_policy__after_tax
+#: model:ir.model.fields.selection,name:pos_discount_governance.selection__pos_order_discount_log__tax_policy__after_tax
+#: model:ir.model.fields.selection,name:pos_discount_governance.selection__res_config_settings__pos_discount_tax_policy__after_tax
+msgid "After Tax"
+msgstr "بعد الضريبة"
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/js/governance.js:0
+msgid "After tax"
+msgstr "بعد الضريبة"
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,field_description:pos_discount_governance.field_pos_config__allow_fixed_discount
+#: model:ir.model.fields,field_description:pos_discount_governance.field_pos_discount_level__allow_fixed_discount
+#: model:ir.model.fields,field_description:pos_discount_governance.field_res_config_settings__pos_allow_fixed_discount
+msgid "Allow Fixed Amount Discounts"
+msgstr "السماح بخصومات المبلغ الثابت"
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,field_description:pos_discount_governance.field_pos_discount_level__allow_global_discount
+msgid "Allow Global Discounts"
+msgstr "السماح بالخصومات الشاملة"
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/xml/DiscountAuthPopup.xml:0
+msgid "Any employee (unique PIN)"
+msgstr "أي موظف (رمز سري فريد)"
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/js/Popups/DiscountEntryPopup.js:0
+msgid "Apply"
+msgstr "تطبيق"
+
+#. module: pos_discount_governance
+#: model_terms:ir.ui.view,arch_db:pos_discount_governance.res_config_settings_view_form_discount_governance
+msgid "Apply line and global discounts on the untaxed or on the tax-included amount"
+msgstr "تطبيق خصومات البنود والخصومات الشاملة على المبلغ قبل الضريبة أو على المبلغ شاملًا الضريبة"
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/js/discount_flow.js:0
+msgid "Approve a discount of %s."
+msgstr "اعتماد خصم بقيمة %s."
+
+#. module: pos_discount_governance
+#: model_terms:ir.ui.view,arch_db:pos_discount_governance.view_pos_discount_level_form
+#: model_terms:ir.ui.view,arch_db:pos_discount_governance.view_pos_discount_level_search
+msgid "Archived"
+msgstr "مؤرشف"
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/js/discount_flow.js:0
+msgid "Ask a supervisor to approve this discount?"
+msgstr "هل تريد طلب موافقة المشرف على هذا الخصم؟"
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,help:pos_discount_governance.field_pos_config__require_discount_auth
+#: model:ir.model.fields,help:pos_discount_governance.field_res_config_settings__pos_require_discount_auth
+msgid "Ask for employee verification before any line or global discount."
+msgstr "طلب التحقق من هوية الموظف قبل أي خصم على بند أو خصم شامل."
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,help:pos_discount_governance.field_pos_order_line__discount_log_uid
+msgid "Audit log entry that authorized the discount of this line."
+msgstr "قيد سجل التدقيق الذي اعتمد خصم هذا البند."
+
+#. module: pos_discount_governance
+#: model_terms:ir.ui.view,arch_db:pos_discount_governance.view_pos_order_discount_log_form
+msgid "Authorization"
+msgstr "التفويض"
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,field_description:pos_discount_governance.field_pos_order_discount_log__auth_method
+msgid "Authorization Method"
+msgstr "طريقة التفويض"
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,field_description:pos_discount_governance.field_pos_order_discount_log__auth_proof
+msgid "Authorization Proof"
+msgstr "إثبات التفويض"
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/js/discount_flow.js:0
+msgid "Authorize Discount"
+msgstr "اعتماد الخصم"
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,field_description:pos_discount_governance.field_pos_order_discount_log__authorizer_employee_id
+#: model_terms:ir.ui.view,arch_db:pos_discount_governance.view_pos_order_discount_log_search
+msgid "Authorized By"
+msgstr "اعتمده"
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/xml/DiscountAuthPopup.xml:0
+#: code:addons/pos_discount_governance/static/src/xml/DiscountEntryPopup.xml:0
+msgid "Backspace"
+msgstr "حذف"
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/xml/DiscountAuthPopup.xml:0
+msgid "Badge"
+msgstr "البطاقة"
+
+#. module: pos_discount_governance
+#. odoo-python
+#: code:addons/pos_discount_governance/models/discount_engine.py:0
+#: model:ir.model.fields.selection,name:pos_discount_governance.selection__pos_config__discount_auth_method__both
+#: model:ir.model.fields.selection,name:pos_discount_governance.selection__pos_order_discount_log__auth_method__both
+#: model:ir.model.fields.selection,name:pos_discount_governance.selection__res_config_settings__pos_discount_auth_method__both
+msgid "Badge + PIN"
+msgstr "البطاقة + الرمز السري"
+
+#. module: pos_discount_governance
+#. odoo-python
+#: code:addons/pos_discount_governance/models/discount_engine.py:0
+#: model:ir.model.fields.selection,name:pos_discount_governance.selection__pos_config__discount_auth_method__badge
+#: model:ir.model.fields.selection,name:pos_discount_governance.selection__pos_order_discount_log__auth_method__badge
+#: model:ir.model.fields.selection,name:pos_discount_governance.selection__res_config_settings__pos_discount_auth_method__badge
+msgid "Badge Scan"
+msgstr "مسح البطاقة"
+
+#. module: pos_discount_governance
+#. odoo-python
+#: code:addons/pos_discount_governance/models/discount_engine.py:0
+#: model:ir.model.fields.selection,name:pos_discount_governance.selection__pos_config__discount_tax_policy__before_tax
+#: model:ir.model.fields.selection,name:pos_discount_governance.selection__pos_order__discount_tax_policy__before_tax
+#: model:ir.model.fields.selection,name:pos_discount_governance.selection__pos_order_discount_log__tax_policy__before_tax
+#: model:ir.model.fields.selection,name:pos_discount_governance.selection__res_config_settings__pos_discount_tax_policy__before_tax
+msgid "Before Tax"
+msgstr "قبل الضريبة"
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/js/governance.js:0
+msgid "Before tax"
+msgstr "قبل الضريبة"
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,help:pos_discount_governance.field_pos_config__discount_tax_policy
+#: model:ir.model.fields,help:pos_discount_governance.field_res_config_settings__pos_discount_tax_policy
+msgid "Before Tax: discounts reduce the untaxed amount. After Tax: discounts reduce the tax-included amount."
+msgstr "قبل الضريبة: يُخصم من المبلغ غير الخاضع للضريبة. بعد الضريبة: يُخصم من المبلغ شاملًا الضريبة."
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,help:pos_discount_governance.field_pos_config__enforce_discount_limits
+#: model:ir.model.fields,help:pos_discount_governance.field_res_config_settings__pos_enforce_discount_limits
+msgid "Block discounts above the employee's discount level and ask for a supervisor override."
+msgstr "منع الخصومات التي تتجاوز مستوى خصم الموظف وطلب تجاوز بموافقة المشرف."
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,field_description:pos_discount_governance.field_pos_discount_level__can_override
+#: model_terms:ir.ui.view,arch_db:pos_discount_governance.view_pos_discount_level_search
+msgid "Can Approve Overrides"
+msgstr "يمكنه اعتماد التجاوزات"
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/js/Popups/DiscountAuthPopup.js:0
+#: code:addons/pos_discount_governance/static/src/js/Popups/DiscountEntryPopup.js:0
+#: code:addons/pos_discount_governance/static/src/js/discount_flow.js:0
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,field_description:pos_discount_governance.field_pos_order_discount_log__cashier_employee_id
+#: model:pos.discount.level,name:pos_discount_governance.discount_level_cashier
+#: model_terms:ir.ui.view,arch_db:pos_discount_governance.view_pos_order_discount_log_search
+msgid "Cashier"
+msgstr "الكاشير"
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,field_description:pos_discount_governance.field_pos_discount_level__company_id
+#: model:ir.model.fields,field_description:pos_discount_governance.field_pos_order_discount_log__company_id
+msgid "Company"
+msgstr "الشركة"
+
+#. module: pos_discount_governance
+#: model_terms:ir.actions.act_window,help:pos_discount_governance.action_pos_discount_level
+msgid "Create a discount level"
+msgstr "أنشئ مستوى خصم"
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,field_description:pos_discount_governance.field_pos_order_discount_log__proof_verified
+msgid "Credentials Verified"
+msgstr "تم التحقق من بيانات الاعتماد"
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,field_description:pos_discount_governance.field_pos_discount_level__currency_id
+#: model:ir.model.fields,field_description:pos_discount_governance.field_pos_order_discount_log__currency_id
+msgid "Currency"
+msgstr "العملة"
+
+#. module: pos_discount_governance
+#: model_terms:ir.ui.view,arch_db:pos_discount_governance.view_pos_order_discount_log_search
+msgid "Day"
+msgstr "اليوم"
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,field_description:pos_discount_governance.field_pos_config__default_discount_level_id
+#: model:ir.model.fields,field_description:pos_discount_governance.field_res_config_settings__pos_default_discount_level_id
+msgid "Default Discount Level"
+msgstr "مستوى الخصم الافتراضي"
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/js/Popups/DiscountEntryPopup.js:0
+#: model_terms:ir.ui.view,arch_db:pos_discount_governance.view_pos_order_discount_log_form
+msgid "Discount"
+msgstr "الخصم"
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/js/discount_flow.js:0
+msgid "Discount Above Your Limit"
+msgstr "الخصم يتجاوز حدك المسموح"
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,field_description:pos_discount_governance.field_pos_order_discount_log__discount_amount
+msgid "Discount Amount"
+msgstr "مبلغ الخصم"
+
+#. module: pos_discount_governance
+#: model_terms:ir.ui.view,arch_db:pos_discount_governance.view_pos_order_discount_log_pivot
+msgid "Discount Analysis"
+msgstr "تحليل الخصومات"
+
+#. module: pos_discount_governance
+#: model_terms:ir.ui.view,arch_db:pos_discount_governance.view_pos_order_discount_log_form
+msgid "Discount Audit Entry"
+msgstr "قيد تدقيق الخصم"
+
+#. module: pos_discount_governance
+#: model:ir.actions.act_window,name:pos_discount_governance.action_pos_order_discount_log
+#: model:ir.model.fields,field_description:pos_discount_governance.field_pos_order__discount_log_ids
+#: model:ir.ui.menu,name:pos_discount_governance.menu_pos_order_discount_log
+#: model_terms:ir.ui.view,arch_db:pos_discount_governance.view_pos_order_discount_log_search
+#: model_terms:ir.ui.view,arch_db:pos_discount_governance.view_pos_order_discount_log_tree
+#: model_terms:ir.ui.view,arch_db:pos_discount_governance.view_pos_order_form_inherit_discount_governance
+msgid "Discount Audit Log"
+msgstr "سجل تدقيق الخصومات"
+
+#. module: pos_discount_governance
+#. odoo-python
+#: code:addons/pos_discount_governance/models/pos_config.py:0
+#, python-format
+msgid "Discount authorization needs employee login: enable 'Log in with Employees' on the point of sale '%s'."
+msgstr "يتطلب التحقق قبل الخصم تسجيل الدخول بالموظفين: فعِّل خيار 'تسجيل الدخول بالموظفين' في نقطة البيع '%s'."
+
+#. module: pos_discount_governance
+#: model_terms:ir.ui.view,arch_db:pos_discount_governance.res_config_settings_view_form_discount_governance
+msgid "Discount Governance"
+msgstr "حوكمة الخصومات"
+
+#. module: pos_discount_governance
+#: model_terms:ir.ui.view,arch_db:pos_discount_governance.view_pos_discount_level_form
+msgid "Discount Level"
+msgstr "مستوى الخصم"
+
+#. module: pos_discount_governance
+#: model:ir.actions.act_window,name:pos_discount_governance.action_pos_discount_level
+#: model:ir.ui.menu,name:pos_discount_governance.menu_pos_discount_level
+#: model_terms:ir.ui.view,arch_db:pos_discount_governance.res_config_settings_view_form_discount_governance
+#: model_terms:ir.ui.view,arch_db:pos_discount_governance.view_pos_discount_level_search
+#: model_terms:ir.ui.view,arch_db:pos_discount_governance.view_pos_discount_level_tree
+msgid "Discount Levels"
+msgstr "مستويات الخصم"
+
+#. module: pos_discount_governance
+#: model_terms:ir.actions.act_window,help:pos_discount_governance.action_pos_discount_level
+msgid "Discount levels define how much each employee may discount in the Point of Sale."
+msgstr "تحدد مستويات الخصم مقدار الخصم المسموح لكل موظف في نقطة البيع."
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,help:pos_discount_governance.field_hr_employee__pos_discount_level_id
+msgid "Discount limits applied to this employee in the Point of Sale. Without a level, the default level of the POS applies; without a default level, the employee is not restricted."
+msgstr "حدود الخصم المطبقة على هذا الموظف في نقطة البيع. في حال عدم تحديد مستوى يُطبَّق المستوى الافتراضي لنقطة البيع، وفي حال عدم وجود مستوى افتراضي لا يخضع الموظف لأي قيود."
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,field_description:pos_discount_governance.field_pos_order__discount_log_count
+msgid "Discount Log Count"
+msgstr "عدد سجلات الخصم"
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,field_description:pos_discount_governance.field_pos_order_line__discount_log_uid
+msgid "Discount Log UID"
+msgstr "المعرّف الفريد لسجل الخصم"
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,field_description:pos_discount_governance.field_pos_order_line__discount_mode
+msgid "Discount Mode"
+msgstr "نوع الخصم"
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/xml/DiscountEntryPopup.xml:0
+msgid "Discount mode"
+msgstr "نوع الخصم"
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/js/PaymentScreen.js:0
+msgid "Discount not authorized"
+msgstr "الخصم غير مُعتمد"
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,field_description:pos_discount_governance.field_pos_config__discount_tax_policy
+#: model:ir.model.fields,field_description:pos_discount_governance.field_pos_order__discount_tax_policy
+#: model:ir.model.fields,field_description:pos_discount_governance.field_res_config_settings__pos_discount_tax_policy
+msgid "Discount Tax Policy"
+msgstr "سياسة ضريبة الخصم"
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,field_description:pos_discount_governance.field_pos_order__discount_violation
+#: model_terms:ir.ui.view,arch_db:pos_discount_governance.view_pos_order_form_inherit_discount_governance
+msgid "Discount Violation"
+msgstr "مخالفة خصم"
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,field_description:pos_discount_governance.field_pos_order__discount_violation_note
+msgid "Discount Violation Details"
+msgstr "تفاصيل مخالفة الخصم"
+
+#. module: pos_discount_governance
+#: model_terms:ir.ui.view,arch_db:pos_discount_governance.view_pos_order_filter_inherit_discount_governance
+msgid "Discount Violations"
+msgstr "مخالفات الخصم"
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/js/models.js:0
+msgid "Discount: %s"
+msgstr "الخصم: %s"
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/js/discount_flow.js:0
+msgid "Discount: %s (%s%%)"
+msgstr "الخصم: %s (%s%%)"
+
+#. module: pos_discount_governance
+#: model_terms:ir.ui.view,arch_db:pos_discount_governance.view_pos_discount_level_form
+msgid "e.g. Supervisor"
+msgstr "مثال: مشرف"
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,field_description:pos_discount_governance.field_pos_order_discount_log__effective_percent
+msgid "Effective %"
+msgstr "النسبة الفعلية %"
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/xml/DiscountAuthPopup.xml:0
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,field_description:pos_discount_governance.field_pos_discount_level__employee_count
+msgid "Employee Count"
+msgstr "عدد الموظفين"
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/js/Popups/DiscountAuthPopup.js:0
+msgid "Employee Verification"
+msgstr "التحقق من الموظف"
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,field_description:pos_discount_governance.field_pos_discount_level__employee_ids
+#: model_terms:ir.ui.view,arch_db:pos_discount_governance.view_pos_discount_level_form
+msgid "Employees"
+msgstr "الموظفون"
+
+#. module: pos_discount_governance
+#. odoo-python
+#: code:addons/pos_discount_governance/models/pos_discount_level.py:0
+msgid "Employees of a discount level must belong to the level's company."
+msgstr "يجب أن ينتمي موظفو مستوى الخصم إلى شركة المستوى."
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,help:pos_discount_governance.field_pos_discount_level__can_override
+msgid "Employees of this level may authorize discounts above the limit of the cashier (supervisor override), within their own limits."
+msgstr "يمكن لموظفي هذا المستوى اعتماد خصومات تتجاوز حد الكاشير (تجاوز بموافقة المشرف) ضمن حدودهم الخاصة."
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,field_description:pos_discount_governance.field_pos_config__enforce_discount_limits
+#: model:ir.model.fields,field_description:pos_discount_governance.field_res_config_settings__pos_enforce_discount_limits
+msgid "Enforce Discount Levels"
+msgstr "تطبيق مستويات الخصم"
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/js/Popups/DiscountEntryPopup.js:0
+msgid "Enter a valid positive number."
+msgstr "أدخل رقمًا موجبًا صالحًا."
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/js/governance.js:0
+msgid "Enter the PIN code."
+msgstr "أدخل الرمز السري."
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,field_description:pos_discount_governance.field_pos_order_discount_log__value
+msgid "Entered Value"
+msgstr "القيمة المدخلة"
+
+#. module: pos_discount_governance
+#: model_terms:ir.actions.act_window,help:pos_discount_governance.action_pos_order_discount_log
+msgid "Every line or global discount applied in the Point of Sale is recorded here."
+msgstr "يُسجَّل هنا كل خصم على بند أو خصم شامل يُطبَّق في نقطة البيع."
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,field_description:pos_discount_governance.field_account_move_line__pos_discount_exact
+msgid "Exact POS Discount (%)"
+msgstr "خصم نقطة البيع الدقيق (%)"
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#. odoo-python
+#: code:addons/pos_discount_governance/models/discount_engine.py:0
+#: code:addons/pos_discount_governance/static/src/xml/DiscountEntryPopup.xml:0
+#: model:ir.model.fields.selection,name:pos_discount_governance.selection__pos_order_discount_log__mode__fixed
+#: model:ir.model.fields.selection,name:pos_discount_governance.selection__pos_order_line__discount_mode__fixed
+msgid "Fixed Amount"
+msgstr "مبلغ ثابت"
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,field_description:pos_discount_governance.field_pos_order_line__discount_fixed_amount
+msgid "Fixed Discount"
+msgstr "خصم ثابت"
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,help:pos_discount_governance.field_account_move_line__pos_discount_exact
+msgid "Full-precision discount coming from the Point of Sale."
+msgstr "نسبة الخصم بالدقة الكاملة القادمة من نقطة البيع."
+
+#. module: pos_discount_governance
+#. odoo-python
+#: code:addons/pos_discount_governance/models/pos_order_discount_log.py:0
+#: model:ir.model.fields.selection,name:pos_discount_governance.selection__pos_order_discount_log__scope__global
+msgid "Global"
+msgstr "شامل"
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#. odoo-python
+#: code:addons/pos_discount_governance/models/pos_order.py:0
+#: code:addons/pos_discount_governance/static/src/js/governance.js:0
+msgid "Global discount"
+msgstr "خصم شامل"
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/js/discount_flow.js:0
+msgid "Global Discount"
+msgstr "خصم شامل على الطلب"
+
+#. module: pos_discount_governance
+#: model_terms:ir.ui.view,arch_db:pos_discount_governance.view_pos_order_discount_log_search
+msgid "Global Discounts"
+msgstr "الخصومات الشاملة"
+
+#. module: pos_discount_governance
+#: model_terms:ir.ui.view,arch_db:pos_discount_governance.view_pos_order_discount_log_search
+msgid "Group By"
+msgstr "تجميع حسب"
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,help:pos_discount_governance.field_pos_discount_level__max_discount_percent
+msgid "Highest discount percentage this level may grant on a single line or as a global discount. 100 means no percentage limit."
+msgstr "أعلى نسبة خصم يمكن لهذا المستوى منحها على بند واحد أو كخصم شامل. القيمة 100 تعني عدم وجود حد للنسبة."
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,help:pos_discount_governance.field_pos_discount_level__max_discount_amount
+msgid "Highest total discount amount (all line and global discounts of one order, in the configured tax basis). 0 means no amount limit."
+msgstr "أعلى مبلغ إجمالي للخصم (جميع خصومات البنود والخصومات الشاملة في الطلب الواحد، وفق أساس الضريبة المحدد). القيمة 0 تعني عدم وجود حد للمبلغ."
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/js/governance.js:0
+msgid "Invalid credentials."
+msgstr "بيانات الاعتماد غير صحيحة."
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/js/ControlButtons.js:0
+#: code:addons/pos_discount_governance/static/src/js/discount_flow.js:0
+msgid "Invalid discount"
+msgstr "خصم غير صالح"
+
+#. module: pos_discount_governance
+#: model_terms:ir.ui.view,arch_db:pos_discount_governance.res_config_settings_view_form_discount_governance
+msgid "Let cashiers enter discounts as an amount as well as a percentage"
+msgstr "السماح للكاشير بإدخال الخصم كمبلغ إضافةً إلى النسبة المئوية"
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,field_description:pos_discount_governance.field_pos_discount_level__name
+msgid "Level Name"
+msgstr "اسم المستوى"
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,help:pos_discount_governance.field_pos_config__default_discount_level_id
+#: model:ir.model.fields,help:pos_discount_governance.field_res_config_settings__pos_default_discount_level_id
+msgid "Level used for employees who have no discount level."
+msgstr "المستوى المستخدم للموظفين الذين ليس لديهم مستوى خصم."
+
+#. module: pos_discount_governance
+#: model_terms:ir.ui.view,arch_db:pos_discount_governance.res_config_settings_view_form_discount_governance
+msgid "Limit discounts per employee level and ask for a supervisor override above the limit"
+msgstr "تقييد الخصومات حسب مستوى الموظف وطلب موافقة المشرف عند تجاوز الحد"
+
+#. module: pos_discount_governance
+#: model_terms:ir.ui.view,arch_db:pos_discount_governance.view_pos_discount_level_form
+msgid "Limits"
+msgstr "الحدود"
+
+#. module: pos_discount_governance
+#. odoo-python
+#: code:addons/pos_discount_governance/models/pos_order_discount_log.py:0
+#: model:ir.model.fields.selection,name:pos_discount_governance.selection__pos_order_discount_log__scope__line
+msgid "Line"
+msgstr "بند"
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/js/discount_flow.js:0
+msgid "Line Discount"
+msgstr "خصم البند"
+
+#. module: pos_discount_governance
+#: model_terms:ir.ui.view,arch_db:pos_discount_governance.view_pos_order_discount_log_search
+msgid "Line Discounts"
+msgstr "خصومات البنود"
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,field_description:pos_discount_governance.field_pos_order_discount_log__log_uid
+msgid "Log UID"
+msgstr "المعرّف الفريد للسجل"
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,field_description:pos_discount_governance.field_pos_discount_level__max_discount_percent
+msgid "Max Discount (%)"
+msgstr "الحد الأقصى للخصم (%)"
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,field_description:pos_discount_governance.field_pos_discount_level__max_discount_amount
+msgid "Max Discount Amount per Order"
+msgstr "الحد الأقصى لمبلغ الخصم لكل طلب"
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,field_description:pos_discount_governance.field_pos_order_discount_log__mode
+msgid "Mode"
+msgstr "النوع"
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/js/governance.js:0
+msgid "No discount limit"
+msgstr "لا يوجد حد للخصم"
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/js/discount_flow.js:0
+msgid "No discount product found"
+msgstr "لم يتم العثور على منتج الخصم"
+
+#. module: pos_discount_governance
+#: model_terms:ir.actions.act_window,help:pos_discount_governance.action_pos_order_discount_log
+msgid "No discounts recorded yet"
+msgstr "لا توجد خصومات مسجلة بعد"
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/js/discount_flow.js:0
+msgid "No employee is allowed to approve this discount."
+msgstr "لا يوجد موظف مخوَّل باعتماد هذا الخصم."
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/js/discount_flow.js:0
+msgid "No line selected"
+msgstr "لم يتم تحديد بند"
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/js/discount_flow.js:0
+msgid "No supervisor available"
+msgstr "لا يوجد مشرف متاح"
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/js/governance.js:0
+msgid "No tax"
+msgstr "بدون ضريبة"
+
+#. module: pos_discount_governance
+#. odoo-python
+#: code:addons/pos_discount_governance/models/pos_order_discount_log.py:0
+#: model:ir.model.fields.selection,name:pos_discount_governance.selection__pos_order_discount_log__auth_method__none
+msgid "No Verification"
+msgstr "بدون تحقق"
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/js/discount_flow.js:0
+msgid "Not allowed"
+msgstr "غير مسموح"
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/js/discount_flow.js:0
+msgid "Nothing to discount"
+msgstr "لا يوجد ما يمكن خصمه"
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,field_description:pos_discount_governance.field_pos_config__discount_violation_action
+#: model:ir.model.fields,field_description:pos_discount_governance.field_res_config_settings__pos_discount_violation_action
+msgid "On Server Violation"
+msgstr "عند المخالفة على الخادم"
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,field_description:pos_discount_governance.field_pos_order_discount_log__order_id
+msgid "Order"
+msgstr "الطلب"
+
+#. module: pos_discount_governance
+#. odoo-python
+#: code:addons/pos_discount_governance/models/pos_order.py:0
+#, python-format
+msgid ""
+"Order %(order)s was rejected by POS Discount Governance:\n"
+"%(details)s"
+msgstr ""
+"رفضت حوكمة خصومات نقطة البيع الطلب %(order)s:\n"
+"%(details)s"
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/js/governance.js:0
+msgid "Order discount total %s exceeds the maximum of %s."
+msgstr "إجمالي خصم الطلب %s يتجاوز الحد الأقصى %s."
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,field_description:pos_discount_governance.field_pos_order_discount_log__order_uid
+msgid "Order UID"
+msgstr "المعرّف الفريد للطلب"
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/js/discount_flow.js:0
+msgid "Override"
+msgstr "تجاوز"
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/js/discount_flow.js:0
+msgid "Override refused"
+msgstr "تم رفض التجاوز"
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#. odoo-python
+#: code:addons/pos_discount_governance/models/discount_engine.py:0
+#: code:addons/pos_discount_governance/static/src/xml/DiscountEntryPopup.xml:0
+#: model:ir.model.fields.selection,name:pos_discount_governance.selection__pos_order_discount_log__mode__percent
+#: model:ir.model.fields.selection,name:pos_discount_governance.selection__pos_order_line__discount_mode__percent
+msgid "Percentage"
+msgstr "نسبة مئوية"
+
+#. module: pos_discount_governance
+#: model_terms:ir.ui.view,arch_db:pos_discount_governance.view_pos_discount_level_form
+msgid "Permissions"
+msgstr "الصلاحيات"
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#. odoo-python
+#: code:addons/pos_discount_governance/models/discount_engine.py:0
+#: code:addons/pos_discount_governance/static/src/xml/DiscountAuthPopup.xml:0
+#: model:ir.model.fields.selection,name:pos_discount_governance.selection__pos_config__discount_auth_method__pin
+#: model:ir.model.fields.selection,name:pos_discount_governance.selection__pos_order_discount_log__auth_method__pin
+#: model:ir.model.fields.selection,name:pos_discount_governance.selection__res_config_settings__pos_discount_auth_method__pin
+msgid "PIN Code"
+msgstr "الرمز السري"
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,field_description:pos_discount_governance.field_pos_order_discount_log__config_id
+msgid "Point of Sale"
+msgstr "نقطة البيع"
+
+#. module: pos_discount_governance
+#: model:ir.model,name:pos_discount_governance.model_pos_discount_engine
+msgid "POS Discount Computation Engine"
+msgstr "محرك احتساب خصومات نقطة البيع"
+
+#. module: pos_discount_governance
+#: model:ir.model,name:pos_discount_governance.model_pos_discount_level
+#: model:ir.model.fields,field_description:pos_discount_governance.field_hr_employee__pos_discount_level_id
+msgid "POS Discount Level"
+msgstr "مستوى خصم نقطة البيع"
+
+#. module: pos_discount_governance
+#: model:ir.model,name:pos_discount_governance.model_pos_order_discount_log
+msgid "POS Order Discount Audit Log"
+msgstr "سجل تدقيق خصومات طلبات نقطة البيع"
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,field_description:pos_discount_governance.field_pos_order_discount_log__product_id
+msgid "Product"
+msgstr "المنتج"
+
+#. module: pos_discount_governance
+#. odoo-python
+#: code:addons/pos_discount_governance/models/pos_config.py:0
+#: model:ir.model.fields.selection,name:pos_discount_governance.selection__pos_config__discount_violation_action__block
+#: model:ir.model.fields.selection,name:pos_discount_governance.selection__res_config_settings__pos_discount_violation_action__block
+msgid "Reject the order"
+msgstr "رفض الطلب"
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,field_description:pos_discount_governance.field_pos_config__require_discount_auth
+#: model:ir.model.fields,field_description:pos_discount_governance.field_res_config_settings__pos_require_discount_auth
+msgid "Require Discount Authorization"
+msgstr "طلب التحقق قبل الخصم"
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/js/governance.js:0
+msgid "Scan or type the badge."
+msgstr "امسح البطاقة أو اكتب رقمها."
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/xml/DiscountAuthPopup.xml:0
+msgid "Scan your badge"
+msgstr "امسح بطاقتك"
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,field_description:pos_discount_governance.field_pos_order_discount_log__scope
+msgid "Scope"
+msgstr "النطاق"
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/js/discount_flow.js:0
+msgid "Select an order line first."
+msgstr "حدد بندًا في الطلب أولًا."
+
+#. module: pos_discount_governance
+#: model:pos.discount.level,name:pos_discount_governance.discount_level_senior_cashier
+msgid "Senior Cashier"
+msgstr "كاشير أول"
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,field_description:pos_discount_governance.field_pos_discount_level__sequence
+msgid "Sequence"
+msgstr "التسلسل"
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,field_description:pos_discount_governance.field_pos_order_discount_log__session_id
+#: model_terms:ir.ui.view,arch_db:pos_discount_governance.view_pos_order_discount_log_search
+msgid "Session"
+msgstr "الجلسة"
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/js/governance.js:0
+msgid "Several employees share this PIN: select your name first."
+msgstr "يشترك أكثر من موظف في هذا الرمز السري: اختر اسمك أولًا."
+
+#. module: pos_discount_governance
+#: model:pos.discount.level,name:pos_discount_governance.discount_level_manager
+msgid "Store Manager"
+msgstr "مدير المتجر"
+
+#. module: pos_discount_governance
+#: model:pos.discount.level,name:pos_discount_governance.discount_level_supervisor
+msgid "Supervisor"
+msgstr "مشرف"
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/js/discount_flow.js:0
+#: model:ir.model.fields,field_description:pos_discount_governance.field_pos_order_discount_log__escalated
+msgid "Supervisor Override"
+msgstr "تجاوز بموافقة المشرف"
+
+#. module: pos_discount_governance
+#: model_terms:ir.ui.view,arch_db:pos_discount_governance.view_pos_order_discount_log_search
+msgid "Supervisor Overrides"
+msgstr "تجاوزات المشرف"
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,field_description:pos_discount_governance.field_pos_order_discount_log__tax_policy
+msgid "Tax Policy"
+msgstr "سياسة الضريبة"
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/xml/DiscountEntryPopup.xml:0
+msgid "Tax policy:"
+msgstr "سياسة الضريبة:"
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/js/governance.js:0
+msgid "Tax: %s"
+msgstr "الضريبة: %s"
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#. odoo-python
+#: code:addons/pos_discount_governance/models/discount_engine.py:0
+#: code:addons/pos_discount_governance/static/src/js/governance.js:0
+msgid "The discount exceeds the line total."
+msgstr "يتجاوز الخصم إجمالي البند."
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#. odoo-python
+#: code:addons/pos_discount_governance/models/discount_engine.py:0
+#: code:addons/pos_discount_governance/static/src/js/governance.js:0
+msgid "The discount exceeds the order total."
+msgstr "يتجاوز الخصم إجمالي الطلب."
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/js/discount_flow.js:0
+msgid "The discount product seems misconfigured. Make sure it is flagged as 'Can be Sold' and 'Available in Point of Sale'."
+msgstr "يبدو أن منتج الخصم غير مُهيأ بشكل صحيح. تأكد من تفعيل 'يمكن بيعه' و'متاح في نقطة البيع'."
+
+#. module: pos_discount_governance
+#: model:ir.model.constraint,message:pos_discount_governance.constraint_pos_discount_level_amount_positive
+msgid "The maximum discount amount cannot be negative."
+msgstr "لا يمكن أن يكون الحد الأقصى لمبلغ الخصم سالبًا."
+
+#. module: pos_discount_governance
+#: model:ir.model.constraint,message:pos_discount_governance.constraint_pos_discount_level_percent_range
+msgid "The maximum discount percentage must be between 0 and 100."
+msgstr "يجب أن تكون النسبة القصوى للخصم بين 0 و100."
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,help:pos_discount_governance.field_pos_order_discount_log__proof_verified
+msgid "The server confirmed the badge/PIN proof sent by the POS."
+msgstr "أكد الخادم صحة إثبات البطاقة/الرمز السري المرسل من نقطة البيع."
+
+#. module: pos_discount_governance
+#: model_terms:ir.ui.view,arch_db:pos_discount_governance.res_config_settings_view_form_discount_governance
+msgid "The server re-checks every synchronized order against verified authorizations"
+msgstr "يعيد الخادم التحقق من كل طلب متزامن مقابل التفويضات الموثَّقة"
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#. odoo-python
+#: code:addons/pos_discount_governance/models/discount_engine.py:0
+#: code:addons/pos_discount_governance/static/src/js/discount_flow.js:0
+#: code:addons/pos_discount_governance/static/src/js/governance.js:0
+msgid "There is nothing to discount on this order."
+msgstr "لا يوجد ما يمكن خصمه في هذا الطلب."
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/js/governance.js:0
+msgid "This discount level does not allow fixed amount discounts."
+msgstr "لا يسمح مستوى الخصم هذا بخصومات المبلغ الثابت."
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/js/governance.js:0
+msgid "This discount level does not allow global discounts."
+msgstr "لا يسمح مستوى الخصم هذا بالخصومات الشاملة."
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/js/discount_flow.js:0
+msgid "This line cannot be discounted."
+msgstr "لا يمكن تطبيق خصم على هذا البند."
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,field_description:pos_discount_governance.field_pos_order_discount_log__timestamp
+msgid "Timestamp"
+msgstr "الوقت"
+
+#. module: pos_discount_governance
+#: model_terms:ir.ui.view,arch_db:pos_discount_governance.view_pos_order_discount_log_search
+msgid "Today"
+msgstr "اليوم"
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/js/governance.js:0
+msgid "Too many failed attempts. Try again in %s seconds."
+msgstr "محاولات فاشلة كثيرة. حاول مرة أخرى بعد %s ثانية."
+
+#. module: pos_discount_governance
+#: model_terms:ir.ui.view,arch_db:pos_discount_governance.view_pos_order_discount_log_tree
+#: model_terms:ir.ui.view,arch_db:pos_discount_governance.view_pos_order_form_inherit_discount_governance
+msgid "Total"
+msgstr "الإجمالي"
+
+#. module: pos_discount_governance
+#. odoo-python
+#: code:addons/pos_discount_governance/models/pos_order.py:0
+#, python-format
+msgid "Total discount of %(amount)s exceeds the authorized maximum of %(allowed)s per order."
+msgstr "إجمالي الخصم البالغ %(amount)s يتجاوز الحد الأقصى المصرح به %(allowed)s لكل طلب."
+
+#. module: pos_discount_governance
+#: model_terms:ir.ui.view,arch_db:pos_discount_governance.view_pos_order_discount_log_search
+msgid "Unverified Credentials"
+msgstr "بيانات اعتماد غير موثَّقة"
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,field_description:pos_discount_governance.field_pos_config__discount_auth_method
+#: model:ir.model.fields,field_description:pos_discount_governance.field_res_config_settings__pos_discount_auth_method
+msgid "Verification Method"
+msgstr "طريقة التحقق"
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/js/Popups/DiscountAuthPopup.js:0
+msgid "Verify"
+msgstr "تحقق"
+
+#. module: pos_discount_governance
+#: model_terms:ir.ui.view,arch_db:pos_discount_governance.res_config_settings_view_form_discount_governance
+msgid "Verify the employee (badge and/or PIN) before every discount. Requires employee login."
+msgstr "التحقق من الموظف (البطاقة و/أو الرمز السري) قبل كل خصم. يتطلب تسجيل الدخول بالموظفين."
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/js/discount_flow.js:0
+msgid "Verify your identity to apply a discount."
+msgstr "تحقق من هويتك لتطبيق الخصم."
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,help:pos_discount_governance.field_pos_config__discount_violation_action
+#: model:ir.model.fields,help:pos_discount_governance.field_res_config_settings__pos_discount_violation_action
+msgid "What the server does when an order arrives with discounts that are not covered by a verified authorization."
+msgstr "الإجراء الذي يتخذه الخادم عند وصول طلب يحتوي على خصومات غير مغطاة بتفويض موثَّق."
+
+#. module: pos_discount_governance
+#: model_terms:ir.ui.view,arch_db:pos_discount_governance.view_pos_order_filter_inherit_discount_governance
+msgid "With Discounts"
+msgstr "تحتوي على خصومات"
+
+#. module: pos_discount_governance
+#. odoo-javascript
+#: code:addons/pos_discount_governance/static/src/js/governance.js:0
+msgid "Your limit: %s%% per discount"
+msgstr "حدك: %s%% لكل خصم"
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,field_description:pos_discount_governance.field_pos_order__dg_discount_log_payload
+msgid "Discount Log Payload"
+msgstr "حمولة سجل الخصم"
+
+#. module: pos_discount_governance
+#: model:ir.model.fields,help:pos_discount_governance.field_pos_order__dg_discount_log_payload
+msgid "Audit entries as sent by the POS (JSON)."
+msgstr "قيود التدقيق كما أرسلتها نقطة البيع (JSON)."
+

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_pos_discount_level_tree" model="ir.ui.view">
+        <field name="name">pos.discount.level.tree</field>
+        <field name="model">pos.discount.level</field>
+        <field name="arch" type="xml">
+            <list string="Discount Levels">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="max_discount_percent"/>
+                <field name="max_discount_amount"/>
+                <field name="allow_fixed_discount" optional="show"/>
+                <field name="allow_global_discount" optional="show"/>
+                <field name="can_override"/>
+                <field name="employee_count"/>
+                <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                <field name="currency_id" invisible="1"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_pos_discount_level_form" model="ir.ui.view">
+        <field name="name">pos.discount.level.form</field>
+        <field name="model">pos.discount.level</field>
+        <field name="arch" type="xml">
+            <form string="Discount Level">
+                <sheet>
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
+                            invisible="active"/>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" placeholder="e.g. Supervisor"/></h1>
+                    </div>
+                    <group>
+                        <group string="Limits">
+                            <field name="max_discount_percent"/>
+                            <field name="max_discount_amount"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                        <group string="Permissions">
+                            <field name="allow_fixed_discount"/>
+                            <field name="allow_global_discount"/>
+                            <field name="can_override"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="active" invisible="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Employees" name="employees">
+                            <field name="employee_ids">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="job_title"/>
+                                    <field name="department_id"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_pos_discount_level_search" model="ir.ui.view">
+        <field name="name">pos.discount.level.search</field>
+        <field name="model">pos.discount.level</field>
+        <field name="arch" type="xml">
+            <search string="Discount Levels">
+                <field name="name"/>
+                <filter name="filter_override" string="Can Approve Overrides" domain="[('can_override', '=', True)]"/>
+                <separator/>
+                <filter name="filter_archived" string="Archived" domain="[('active', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_pos_discount_level" model="ir.actions.act_window">
+        <field name="name">Discount Levels</field>
+        <field name="res_model">pos.discount.level</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create a discount level</p>
+            <p>Discount levels define how much each employee may discount in the Point of Sale.</p>
+        </field>
+    </record>
+</odoo>

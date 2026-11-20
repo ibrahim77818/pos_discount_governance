@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="pos_discount_governance.DiscountAuthPopup">
+        <Dialog title="props.title" size="'md'" contentClass="'pos-dg-popup pos-dg-auth-popup'">
+                <p t-if="props.body" class="pos-dg-text"><t t-esc="props.body"/></p>
+
+                <div t-if="needsPin and candidates.length" class="pos-dg-field">
+                    <label class="pos-dg-label" for="pos_dg_auth_employee">Employee</label>
+                    <select id="pos_dg_auth_employee" class="pos-dg-input" t-model="state.employeeId">
+                        <option value="">Any employee (unique PIN)</option>
+                        <t t-foreach="candidates" t-as="employee" t-key="employee.id">
+                            <option t-att-value="employee.id"><t t-esc="employee.name"/></option>
+                        </t>
+                    </select>
+                </div>
+
+                <div t-if="needsBadge" class="pos-dg-field">
+                    <label class="pos-dg-label" for="pos_dg_auth_badge">Badge</label>
+                    <input id="pos_dg_auth_badge" t-ref="badge" type="password" dir="ltr"
+                           class="pos-dg-input pos-dg-ltr" autocomplete="off"
+                           placeholder="Scan your badge"
+                           t-model="state.badge"
+                           t-on-keydown="onKeydown" t-on-keyup.stop="noop"/>
+                </div>
+
+                <div t-if="needsPin" class="pos-dg-field">
+                    <label class="pos-dg-label" for="pos_dg_auth_pin">PIN Code</label>
+                    <input id="pos_dg_auth_pin" t-ref="pin" type="password" dir="ltr"
+                           inputmode="numeric" class="pos-dg-input pos-dg-ltr" autocomplete="off"
+                           t-model="state.pin"
+                           t-on-keydown="onKeydown" t-on-keyup.stop="noop"/>
+                    <div class="pos-dg-keypad" dir="ltr">
+                        <t t-foreach="['1', '2', '3', '4', '5', '6', '7', '8', '9', 'C', '0', 'Backspace']"
+                           t-as="key" t-key="key">
+                            <button type="button" class="pos-dg-key" t-on-click="() => this.pressKey(key)">
+                                <t t-if="key === 'Backspace'"><i class="fa fa-long-arrow-left" aria-label="Backspace" title="Backspace"/></t>
+                                <t t-else=""><t t-esc="key"/></t>
+                            </button>
+                        </t>
+                    </div>
+                </div>
+
+                <div t-if="state.error" class="pos-dg-error" role="alert">
+                    <i class="fa fa-exclamation-triangle me-1" aria-hidden="true"/>
+                    <t t-esc="state.error"/>
+                </div>
+            <t t-set-slot="footer">
+                <button type="button" class="btn btn-secondary btn-lg lh-lg o-default-button" t-on-click="cancel"><t t-esc="props.cancelText"/></button>
+                <button type="button" class="btn btn-primary btn-lg lh-lg o-default-button" t-on-click="confirm"><t t-esc="props.confirmText"/></button>
+            </t>
+        </Dialog>
+    </t>
+
+</templates>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_discount_governance" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.pos.discount.governance</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//app[@name='point_of_sale']" position="inside">
+                <block title="Discount Governance" id="pos_discount_governance_settings">
+                    <setting id="pos_discount_tax_policy_setting"
+                             help="Apply line and global discounts on the untaxed or on the tax-included amount">
+                        <field name="pos_discount_tax_policy" widget="radio"/>
+                    </setting>
+                    <setting id="pos_allow_fixed_discount_setting"
+                             help="Let cashiers enter discounts as an amount as well as a percentage">
+                        <field name="pos_allow_fixed_discount"/>
+                    </setting>
+                    <setting id="pos_require_discount_auth_setting"
+                             help="Verify the employee (badge and/or PIN) before every discount. Requires employee login.">
+                        <field name="pos_require_discount_auth"/>
+                        <div class="content-group mt16" invisible="not pos_require_discount_auth">
+                            <label for="pos_discount_auth_method" class="o_light_label"/>
+                            <field name="pos_discount_auth_method" widget="radio"/>
+                        </div>
+                    </setting>
+                    <setting id="pos_enforce_discount_limits_setting"
+                             help="Limit discounts per employee level and ask for a supervisor override above the limit">
+                        <field name="pos_enforce_discount_limits"/>
+                        <div class="content-group mt16" invisible="not pos_enforce_discount_limits">
+                            <div class="row">
+                                <label for="pos_default_discount_level_id" class="col-lg-5 o_light_label"/>
+                                <field name="pos_default_discount_level_id" options="{'no_create': True}"/>
+                            </div>
+                            <div class="mt8">
+                                <button name="%(pos_discount_governance.action_pos_discount_level)d"
+                                        type="action" string="Discount Levels" icon="oi-arrow-right"
+                                        class="btn-link"/>
+                            </div>
+                        </div>
+                    </setting>
+                    <setting id="pos_discount_violation_action_setting"
+                             help="The server re-checks every synchronized order against verified authorizations">
+                        <field name="pos_discount_violation_action" widget="radio"/>
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>
