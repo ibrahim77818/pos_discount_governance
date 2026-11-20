@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <!-- Fixed-amount line discounts show as an amount (order screen and receipt). -->
+    <t t-inherit="point_of_sale.Orderline" t-inherit-mode="extension">
+        <xpath expr="//li[contains(@t-if, 'line.discount !==')]" position="after">
+            <li t-if="line.dgFixedDiscount" class="pos-dg-fixed-discount">
+                <t t-esc="line.price_without_discount"/> <bdi t-esc="line.dgFixedDiscount"/>
+            </li>
+        </xpath>
+    </t>
+
+</templates>

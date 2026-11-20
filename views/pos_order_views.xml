@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_pos_order_form_inherit_discount_governance" model="ir.ui.view">
+        <field name="name">pos.order.form.discount.governance</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet/*[1]" position="before">
+                <field name="discount_violation" invisible="1"/>
+                <widget name="web_ribbon" title="Discount Violation" bg_color="bg-danger"
+                        invisible="not discount_violation"/>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page string="Discount Audit Log" name="discount_audit_log">
+                    <div class="alert alert-danger" role="alert"
+                         invisible="not discount_violation">
+                        <field name="discount_violation_note" nolabel="1"/>
+                    </div>
+                    <group>
+                        <field name="discount_tax_policy"/>
+                    </group>
+                    <field name="discount_log_ids" mode="list" readonly="1">
+                        <list decoration-warning="escalated"
+                              decoration-danger="auth_method != 'none' and not proof_verified">
+                            <field name="timestamp"/>
+                            <field name="scope"/>
+                            <field name="mode"/>
+                            <field name="tax_policy"/>
+                            <field name="product_id"/>
+                            <field name="value"/>
+                            <field name="discount_amount" sum="Total"/>
+                            <field name="cashier_employee_id"/>
+                            <field name="authorizer_employee_id"/>
+                            <field name="auth_method"/>
+                            <field name="escalated"/>
+                            <field name="proof_verified"/>
+                            <field name="currency_id" invisible="1"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_pos_order_tree_inherit_discount_governance" model="ir.ui.view">
+        <field name="name">pos.order.tree.discount.governance</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_order_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//list" position="attributes">
+                <attribute name="decoration-danger">discount_violation</attribute>
+            </xpath>
+            <xpath expr="//list" position="inside">
+                <field name="discount_violation" optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_pos_order_filter_inherit_discount_governance" model="ir.ui.view">
+        <field name="name">pos.order.search.discount.governance</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_order_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <separator/>
+                <filter name="filter_discount_violation" string="Discount Violations"
+                        domain="[('discount_violation', '=', True)]"/>
+                <filter name="filter_discounted" string="With Discounts"
+                        domain="[('discount_log_ids', '!=', False)]"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
