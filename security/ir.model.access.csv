@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_pos_discount_level_user,pos.discount.level user,model_pos_discount_level,point_of_sale.group_pos_user,1,0,0,0
+access_pos_discount_level_manager,pos.discount.level manager,model_pos_discount_level,point_of_sale.group_pos_manager,1,1,1,1
+access_pos_discount_level_hr,pos.discount.level hr officer,model_pos_discount_level,hr.group_hr_user,1,0,0,0
+access_pos_order_discount_log_user,pos.order.discount.log user,model_pos_order_discount_log,point_of_sale.group_pos_user,1,0,0,0
+access_pos_order_discount_log_manager,pos.order.discount.log manager,model_pos_order_discount_log,point_of_sale.group_pos_manager,1,0,0,0
+access_pos_order_discount_log_admin,pos.order.discount.log admin,model_pos_order_discount_log,base.group_system,1,0,0,1

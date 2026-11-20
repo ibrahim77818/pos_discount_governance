@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_discount_governance" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.pos.discount.governance</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@data-key='point_of_sale']" position="inside">
+                <h2>Discount Governance</h2>
+                <div class="row mt16 o_settings_container" id="pos_discount_governance_settings">
+                    <div class="col-12 col-lg-6 o_setting_box" id="pos_discount_tax_policy_setting">
+                        <div class="o_setting_left_pane"/>
+                        <div class="o_setting_right_pane">
+                            <label for="pos_discount_tax_policy"/>
+                            <div class="text-muted">
+                                Apply line and global discounts on the untaxed or on the tax-included amount
+                            </div>
+                            <div class="content-group mt16">
+                                <field name="pos_discount_tax_policy" widget="radio"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 o_setting_box" id="pos_allow_fixed_discount_setting">
+                        <div class="o_setting_left_pane">
+                            <field name="pos_allow_fixed_discount"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="pos_allow_fixed_discount"/>
+                            <div class="text-muted">
+                                Let cashiers enter discounts as an amount as well as a percentage
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 o_setting_box" id="pos_require_discount_auth_setting">
+                        <div class="o_setting_left_pane">
+                            <field name="pos_require_discount_auth"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="pos_require_discount_auth"/>
+                            <div class="text-muted">
+                                Verify the employee (badge and/or PIN) before every discount. Requires employee login.
+                            </div>
+                            <div class="content-group mt16"
+                                 attrs="{'invisible': [('pos_require_discount_auth', '=', False)]}">
+                                <label for="pos_discount_auth_method" class="o_light_label"/>
+                                <field name="pos_discount_auth_method" widget="radio"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 o_setting_box" id="pos_enforce_discount_limits_setting">
+                        <div class="o_setting_left_pane">
+                            <field name="pos_enforce_discount_limits"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="pos_enforce_discount_limits"/>
+                            <div class="text-muted">
+                                Limit discounts per employee level and ask for a supervisor override above the limit
+                            </div>
+                            <div class="content-group mt16"
+                                 attrs="{'invisible': [('pos_enforce_discount_limits', '=', False)]}">
+                                <div class="row">
+                                    <label for="pos_default_discount_level_id" class="col-lg-5 o_light_label"/>
+                                    <field name="pos_default_discount_level_id" options="{'no_create': True}"/>
+                                </div>
+                                <div class="mt8">
+                                    <button name="%(pos_discount_governance.action_pos_discount_level)d"
+                                            type="action" string="Discount Levels" icon="fa-arrow-right"
+                                            class="btn-link"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 o_setting_box" id="pos_discount_violation_action_setting">
+                        <div class="o_setting_left_pane"/>
+                        <div class="o_setting_right_pane">
+                            <label for="pos_discount_violation_action"/>
+                            <div class="text-muted">
+                                The server re-checks every synchronized order against verified authorizations
+                            </div>
+                            <div class="content-group mt16">
+                                <field name="pos_discount_violation_action" widget="radio"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
