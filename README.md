@@ -10,12 +10,14 @@ One branch per Odoo version in this repository: `16.0` (default), `17.0`,
 `18.0`, `19.0`, `20.0`. This branch is for Odoo 20.0.
 
 ## Installation
-1. Copy the `pos_discount_governance` folder into your addons path (or clone
-   this branch: `git clone -b 20.0 https://github.com/ibrahim77818/pos_discount_governance`).
-2. Restart Odoo, update the apps list and install **POS Discount Governance**
+1. Clone this branch: `git clone -b 20.0 https://github.com/ibrahim77818/pos_discount_governance`
+   (or copy the `pos_discount_governance` folder from it).
+2. Add the cloned repository folder to your Odoo `addons_path` (the module is
+   the `pos_discount_governance` folder inside it).
+3. Restart Odoo, update the apps list and install **POS Discount Governance**
    (depends on `point_of_sale`, `pos_hr`, `pos_discount`), or run
    `odoo -d <db> -i pos_discount_governance`.
-3. Upgrade later with `-u pos_discount_governance`.
+4. Upgrade later with `-u pos_discount_governance`.
 
 ## Configuration
 *Point of Sale › Configuration › Settings › Discount Governance*
